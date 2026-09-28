@@ -76,7 +76,8 @@
 
 /* ================================================================
    2. COULEURS — MODE SOMBRE
-   (appliqué si le système est en sombre, ou si l'utilisateur le force)
+   (appliqué uniquement quand on clique sur le bouton lune ;
+    le site s'ouvre toujours en mode clair par défaut)
    ================================================================ */
 :root[data-theme="dark"] {
   color-scheme: dark;
@@ -104,36 +105,6 @@
   --cover-muted: #444E8C;
   --shadow-sm: none;
   --shadow-lg: 0 20px 40px -16px rgba(0, 0, 0, .6);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    color-scheme: dark;
-    --bg: #0B1030;
-    --bg-alt: #0E1438;
-    --surface: #131A45;
-    --hero-bg: #0E1438;
-    --hero-waves: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320' preserveAspectRatio='none'%3E%3Cg fill='none' stroke='%23FFFFFF' stroke-width='1.2' opacity='.07'%3E%3Cpath d='M0 200C240 120 480 280 720 200S1200 120 1440 200'/%3E%3Cpath d='M0 220C240 140 480 300 720 220S1200 140 1440 220'/%3E%3Cpath d='M0 240C240 160 480 320 720 240S1200 160 1440 240'/%3E%3Cpath d='M0 260C240 180 480 340 720 260S1200 180 1440 260'/%3E%3Cpath d='M0 280C240 200 480 360 720 280S1200 200 1440 280'/%3E%3C/g%3E%3C/svg%3E");
-    --text: #E6E9F5;
-    --text-muted: #A8B1D6;
-    --heading: #FFFFFF;
-    --border: #252D63;
-    --border-btn: #3A4278;
-    --primary: #B7C0F0;
-    --primary-soft: #1C2459;
-    --accent: #FF7A6E;
-    --accent-hover: #FF9A90;
-    --accent-bright: #FF7A6E;
-    --accent-soft: rgba(255, 122, 110, .12);
-    --on-accent: #0B1030;
-    --cover-bg: #10163D;
-    --cover-soft: #232C66;
-    --cover-line: #3D4787;
-    --cover-dot: #1A2152;
-    --cover-muted: #444E8C;
-    --shadow-sm: none;
-    --shadow-lg: 0 20px 40px -16px rgba(0, 0, 0, .6);
-  }
 }
 
 /* ================================================================
@@ -334,11 +305,6 @@ a:hover { color: var(--accent-hover); }
 .icon-sun { display: none; }
 :root[data-theme="dark"] .icon-sun { display: block; }
 :root[data-theme="dark"] .icon-moon { display: none; }
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) .icon-sun { display: block; }
-  :root:not([data-theme="light"]) .icon-moon { display: none; }
-}
-
 /* ================================================================
    6. HERO
    ================================================================ */
@@ -893,7 +859,6 @@ a:hover { color: var(--accent-hover); }
 .form-status.success { color: var(--accent); }
 .form-status.error { color: #B42318; }
 :root[data-theme="dark"] .form-status.error { color: #FDA29B; }
-@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .form-status.error { color: #FDA29B; } }
 .form-status.pending { color: var(--text-muted); }
 
 /* ================================================================

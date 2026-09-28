@@ -10,8 +10,7 @@
   <meta name="author" content="Nafissatou SOW">
   <!-- ⚠️ Remplacez l'URL ci-dessous si votre site n'est pas à cette adresse (voir README) -->
   <link rel="canonical" href="https://nafissatou172.github.io/">
-  <meta name="theme-color" content="#FFFFFF" media="(prefers-color-scheme: light)">
-  <meta name="theme-color" content="#0B1030" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#FFFFFF">
 
   <!-- ==================== Open Graph (aperçu LinkedIn, WhatsApp…) ==================== -->
   <meta property="og:type" content="website">
@@ -50,12 +49,13 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rufina:wght@400;700&family=Rubik:wght@400;500;600&display=swap">
 
-  <!-- Applique le thème (clair/sombre) AVANT l'affichage pour éviter un « flash » -->
+  <!-- Applique le thème AVANT l'affichage pour éviter un « flash » (clair par défaut) -->
   <script>
     (function () {
       try {
+        // Thème clair par défaut ; sombre seulement si le visiteur l'a choisi
         var saved = localStorage.getItem("theme");
-        if (saved === "light" || saved === "dark") document.documentElement.setAttribute("data-theme", saved);
+        document.documentElement.setAttribute("data-theme", saved === "dark" ? "dark" : "light");
       } catch (e) {}
       document.documentElement.classList.add("js");
     })();

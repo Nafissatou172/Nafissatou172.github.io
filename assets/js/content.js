@@ -33,7 +33,7 @@ const SITE = {
   },
 
   // Photo : remplacez par "assets/img/photo.jpg" une fois votre photo ajoutée.
-  photo: "assets/img/1.jpg",
+  photo: "assets/img/profil.jpg",
 
   // Identifiant Formspree (voir README, section « Formulaire de contact »).
   // Exemple : si votre URL Formspree est https://formspree.io/f/xyzabcd,

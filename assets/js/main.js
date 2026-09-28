@@ -86,13 +86,11 @@
 
   /* ================================================================
      3. THÈME
-     Par défaut, le site suit les préférences du système.
-     Le bouton permet de forcer clair ou sombre (mémorisé).
+     Le site s'ouvre toujours en mode clair.
+     Le bouton permet de passer en sombre (choix mémorisé).
      ================================================================ */
-  const systemDark = window.matchMedia("(prefers-color-scheme: dark)");
-
   const currentTheme = () =>
-    document.documentElement.getAttribute("data-theme") || (systemDark.matches ? "dark" : "light");
+    document.documentElement.getAttribute("data-theme") === "dark" ? "dark" : "light";
 
   function updateThemeLabel() {
     const btn = $("#theme-toggle");
@@ -678,7 +676,6 @@
 
     $("#lang-toggle").addEventListener("click", toggleLanguage);
     $("#theme-toggle").addEventListener("click", toggleTheme);
-    systemDark.addEventListener("change", updateThemeLabel);
 
     applyLanguage(); // affiche tout le contenu
     setupNav();
