@@ -50,7 +50,7 @@ const UI = {
     meta: {
       title: "Nafissatou SOW · Ingénieure Data & IA",
       description:
-        "Portfolio de Nafissatou SOW, ingénieure Data & IA polyvalente : Data Engineering, BI, Machine Learning et IA générative (LLM, RAG, agents). En recherche de stage ou d’alternance.",
+        "Portfolio de Nafissatou SOW, ingénieure Data & IA polyvalente : Data Engineering, BI & Data Analysis, Machine Learning et IA générative (LLM, RAG, agents). En recherche de stage ou d’alternance.",
     },
     a11y: {
       skip: "Aller au contenu",
@@ -71,22 +71,22 @@ const UI = {
     },
     hero: {
       status: "En recherche de stage / alternance",
-      hello: "Bonjour, je suis",
+      hello: "Bienvenue, je suis",
       title: "Ingénieure Data & IA polyvalente",
       pitch:
-        "Je transforme des données brutes en décisions et en produits IA : pipelines ETL, tableaux de bord, modèles de Machine Learning et assistants LLM.",
+        "Je transforme des données brutes en décisions et en produits IA : pipelines ETL, tableaux de bord et reportings, modèles de Machine Learning et assistants LLM.",
       availability: [
         { label: "Alternance", value: "dès que possible" },
         { label: "Stage", value: "dès mars 2027" },
       ],
-      rhythm: "Rythme d’alternance : 2 semaines école / 2 semaines entreprise",
+      rhythm: "Rythme d’alternance : 2 semaines école / 3 semaines entreprise",
       ctaProjects: "Voir mes projets",
       ctaCv: "Télécharger mon CV",
     },
     about: {
       title: "À propos",
       paragraphs: [
-        "Titulaire d’un Master en Intelligence Artificielle et Big Data de l’École Supérieure Polytechnique de Dakar, je poursuis aujourd’hui un Mastère Spécialisé Expert Big Data Engineer à l’Université de Technologie de Troyes (UTT), à Paris.",
+        "Titulaire d’un Master en Intelligence Artificielle et Big Data de l’École Supérieure Polytechnique, je poursuis aujourd’hui un Mastère Spécialisé Expert Big Data Engineer à l’Université de Technologie de Troyes (UTT), à Paris",
         "Mon profil est volontairement polyvalent : je construis des pipelines de données, je conçois des tableaux de bord de pilotage, j’entraîne des modèles de Machine Learning et je développe des applications d’IA générative (RAG, agents). Cette vision de bout en bout me permet de dialoguer aussi bien avec les équipes métier qu’avec les équipes techniques.",
         "Ce qui me motive : une IA utile et concrète, qui résout de vrais problèmes (accès à l’information, mobilité, santé, sécurité). Je suis particulièrement attentive au rôle de la donnée dans la transition numérique en général, et j’aime faire le lien entre innovation technique et impact réel.",
       ],
@@ -126,7 +126,7 @@ const UI = {
         { icon: "plane", name: "Voyages", text: "Découverte de nouvelles cultures." },
         { icon: "footprints", name: "Running", text: "Pratique régulière depuis plusieurs années, pour l’endurance et le dépassement de soi." },
       ],
-      soft: ["Curiosité", "Rigueur", "Esprit d'analyse", "Esprit de synthèse", "Autonomie", "Bon relationnel", "Veille technologique"],
+      soft: ["Curiosité", "Rigueur", "Esprit d'analyse", "Sens du détail", "Esprit de synthèse", "Autonomie", "Bon relationnel", "Veille technologique"],
     },
     projects: {
       title: "Projets",
@@ -135,7 +135,7 @@ const UI = {
       filters: {
         all: "Tous",
         genai: "IA générative",
-        data: "Data Eng & BI",
+        data: "Data Eng & Data Analysis",
         ml: "ML & Deep Learning",
       },
       pro: "En entreprise",
@@ -357,6 +357,10 @@ const SKILLS = [
       "CNN",
       { fr: "Apprentissage par renforcement (MARL)", en: "Reinforcement Learning (MARL)" },
       "K-Means",
+      "Computer Vision",
+      "OpenCV",
+      "YOLOv8",
+      "MediaPipe",
     ],
   },
   {
@@ -412,7 +416,7 @@ const SKILLS = [
    - categories : filtres où il apparaît → "genai", "data", "ml"
    - pro        : true si réalisé en entreprise (affiche un badge)
    - cover      : visuel généré automatiquement tant qu'il n'y a pas d'image
-                  (chat, traffic, agents, flow, bars, cluster, tree, cnn, topics)
+                  (chat, traffic, agents, flow, bars, cluster, tree, cnn, topics, vision)
    - image      : couverture choisie manuellement (ex. "assets/img/projets/ter-cover.png").
                   Si vide → visuel généré (champ "cover"). Les captures n'y changent rien.
 
@@ -934,6 +938,60 @@ const PROJECTS = [
         "Social media text data needs careful cleaning before any reliable analysis.",
     },
   },
+  {
+    id: "visionai-temps-reel",
+    categories: ["ml"],
+    pro: false,
+    cover: "vision",
+    image: "assets/img/projets/Yolo/profil.png",
+    github: "https://github.com/Nafissatou172/Yolo-detection",
+    demo: "",
+    videos: ["https://www.loom.com/share/ee14853bbba44a4ca5be090936ab3f2b","https://www.loom.com/share/1e2fcc7f5de94452847308157feb1b62"],
+    screenshots: [],
+    stack: ["Python", "OpenCV", "YOLOv8", "MediaPipe", "NumPy", "CVAT", "Computer Vision"],
+    fr: {
+      title: "VisionAI : détection d’objets et suivi des mains en temps réel",
+      label: "Projet · Computer Vision / Deep Learning",
+      summary:
+        "Application qui analyse un flux webcam en direct pour détecter des dizaines d’objets (YOLOv8) et suivre les 21 points d’articulation de la main (MediaPipe).",
+      context:
+        "L’objectif : concevoir un système visuel rapide et accessible, capable de « comprendre » son environnement en direct. Pour une expérience plus inclusive, toutes les détections sont traduites et affichées en français.",
+      steps: [
+        "Détection, classification et encadrement en temps réel des 80 classes d’objets reconnues par YOLOv8 (personnes, véhicules, animaux, objets du quotidien), avec un indice de confiance.",
+        "Suivi de la main avec MediaPipe : repérage de 21 points d’articulation (landmarks), une base pour la reconnaissance de gestes.",
+        "Superposition dynamique des annotations sur la vidéo avec OpenCV : boîtes de délimitation, squelette de la main et libellés traduits en français.",
+        "Optimisation du traitement pour garder une fréquence d’images (FPS) élevée pendant l’inférence.",
+        "Annotation d’images avec CVAT pour préparer des données d’entraînement.",
+      ],
+      results: [
+        "Détection d’objets et suivi des mains simultanés sur un flux vidéo en direct, sans latence gênante pour l’utilisateur.",
+        "Interface entièrement en français, plus accessible pour un public francophone.",
+      ],
+      learnings:
+        "Faire tourner un modèle de Deep Learning en temps réel demande autant de travail d’optimisation que de modélisation : chaque milliseconde compte pour garder une vidéo fluide.",
+    },
+    en: {
+      title: "VisionAI: real-time object detection and hand tracking",
+      label: "Project · Computer Vision / Deep Learning",
+      summary:
+        "Application that analyses a live webcam feed to detect dozens of objects (YOLOv8) and track the 21 hand landmarks (MediaPipe).",
+      context:
+        "The goal: build a fast, accessible vision system able to “understand” its surroundings live. For a more inclusive experience, all detections are translated and displayed in French.",
+      steps: [
+        "Real-time detection, classification and bounding boxes for the 80 object classes recognised by YOLOv8 (people, vehicles, animals, everyday objects), with a confidence score.",
+        "Hand tracking with MediaPipe: 21 joint landmarks located and followed, laying the groundwork for gesture recognition.",
+        "Dynamic overlay of annotations on the video with OpenCV: bounding boxes, hand skeleton and labels translated into French.",
+        "Optimised processing to keep a high frame rate (FPS) during inference.",
+        "Image annotation with CVAT to prepare training data.",
+      ],
+      results: [
+        "Simultaneous object detection and hand tracking on a live video feed, with no noticeable lag for the user.",
+        "Fully French interface, more accessible to French-speaking users.",
+      ],
+      learnings:
+        "Running a Deep Learning model in real time takes as much optimisation work as modelling: every millisecond counts to keep the video smooth.",
+    },
+  },
 ];
 
 /* ---------------------------------------------------------------------
@@ -947,20 +1005,21 @@ const EXPERIENCES = [
     projectId: "feux-circulation-intelligents",
     stack: ["Python", "SUMO", "Fitted Q-Iteration", "Random Forest", "KPI", "Dashboards"],
     fr: {
-      role: "Stagiaire Data & IA",
+      role: "Stagiaire Data Analyste & IA",
       period: "Janv. 2026 – juin 2026 · 6 mois",
       context:
         "Projet d’optimisation des feux de circulation par apprentissage par renforcement, à partir d’un réseau urbain simulé avec SUMO.",
       missions: [
         "Collecte et exploitation des données de simulation pour évaluer différentes stratégies d’optimisation.",
+        "Entrainement d'un modèle de reinforcement learning multi-agents pour apprendre les meilleurs stratégies d'optimisation.",
         "Définition et suivi de KPI : temps d’attente, vitesse, fluidité et temps de parcours.",
         "Analyse comparative des performances et identification des écarts entre stratégies.",
         "Conception de tableaux de bord pour le suivi des résultats et l’aide à la décision.",
       ],
-      impact: "Mise en place d'un POC qui permet d’optimiser la gestion des feux tricolores à partir de données simulées et de KPI à l'aide de l'intelligence artificielle",
+      impact: "Mise en place d'une solution qui permet d’optimiser la gestion des feux tricolores à partir de données simulées et de KPI à l'aide de l'intelligence artificielle",
     },
     en: {
-      role: "Data & AI Intern",
+      role: "Data Analyst & AI Intern",
       period: "Jan 2026 – Jun 2026 · 6 months",
       context: "Traffic light optimisation project using reinforcement learning on an urban network simulated with SUMO.",
       missions: [
@@ -985,10 +1044,11 @@ const EXPERIENCES = [
       missions: [
         "Développement d’une application d’exploitation et d’interrogation de données documentaires.",
         "Développement et intégration de la solution avec FastAPI, React et API REST.",
-        "Participation aux phases de tests, d’intégration et d’amélioration de la solution.",
+        "Suivi et pilotage de la performance des données utilisateurs",
+        "Livraison de tableau de bords de suivi de la satisfaction des utilisateurs et de la performance opérationnelle du Chatbot.",
       ],
       impact:
-        "Amélioration de l’accès à l’information grâce à une interface conversationnelle exploitant des connaissances documentaires.",
+        "Amélioration de l’accès à l’information grâce à une interface conversationnelle exploitant des connaissances documentaires et aide à la décision.",
     },
     en: {
       role: "AI Developer Intern",

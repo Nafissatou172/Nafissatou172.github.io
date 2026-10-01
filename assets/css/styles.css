@@ -695,6 +695,8 @@ a:hover { color: var(--accent-hover); }
 .c-line-acc { stroke: var(--accent); stroke-width: 2.5; fill: none; stroke-linejoin: round; stroke-linecap: round; }
 .c-text { font: 600 12px var(--font-label); fill: var(--primary); letter-spacing: .05em; }
 .c-text.on { fill: var(--on-accent); }
+.c-box-prim { fill: none; stroke: var(--primary); stroke-width: 2.5; }
+.c-box-acc { fill: none; stroke: var(--accent-bright); stroke-width: 2.5; }
 
 /* ================================================================
    11. COMPÉTENCES

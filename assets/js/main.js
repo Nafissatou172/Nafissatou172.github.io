@@ -385,6 +385,35 @@
         break;
       }
 
+      case "vision": { // Détection d'objet (boîte + étiquette) et squelette de main
+        const wrist = [292, 186];
+        const fingers = [ // base → articulations → bout du doigt
+          [[264, 162], [248, 142], [238, 124]],
+          [[272, 122], [268, 97], [265, 74]],
+          [[291, 116], [291, 89], [291, 64]],
+          [[309, 121], [311, 96], [314, 74]],
+          [[325, 134], [331, 115], [337, 98]],
+        ];
+        const pts = (list) => list.map(([x, y]) => `${x},${y}`).join(" ");
+        // Tout est gardé entre y≈42 et y≈180 : la fenêtre de détail (format large)
+        // rogne le haut et le bas du visuel.
+        art = `
+          <rect x="40" y="62" width="130" height="116" rx="4" class="c-box-prim"/>
+          <rect x="40" y="43" width="104" height="19" rx="3" class="c-prim"/>
+          <text x="48" y="57" class="c-text on">personne 92%</text>
+          <circle cx="105" cy="96" r="17" class="c-soft"/>
+          <rect x="77" y="118" width="56" height="50" rx="12" class="c-soft"/>
+          <rect x="216" y="62" width="150" height="116" rx="4" class="c-box-acc"/>
+          <rect x="216" y="43" width="82" height="19" rx="3" class="c-acc"/>
+          <text x="224" y="57" class="c-text on">main 97%</text>
+          <g transform="translate(291 172) scale(.78) translate(-292 -186)">`
+          + fingers.map((f) => `<polyline points="${pts([wrist, ...f])}" class="c-line-acc"/>`).join("")
+          + `<polyline points="${pts(fingers.map((f) => f[0]))}" class="c-line-acc"/>`
+          + [wrist, ...fingers.flat()].map(([x, y]) => `<circle cx="${x}" cy="${y}" r="4.5" class="c-prim"/>`).join("")
+          + `</g>`;
+        break;
+      }
+
       case "cnn": { // Couches d'un réseau convolutif
         const stack = (x, size, count, cls) => {
           let s = "";

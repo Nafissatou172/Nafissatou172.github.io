@@ -64,7 +64,7 @@ Dans `content.js`, copiez un bloc complet de la liste `PROJECTS` (de `{` à `},`
 | `id` | identifiant unique, sans espace ni accent (ex. `"prevision-ventes"`) |
 | `categories` | filtres : `"genai"`, `"data"`, `"ml"` (un ou plusieurs) |
 | `pro` | `true` affiche le badge « En entreprise » |
-| `cover` | visuel généré : `chat`, `traffic`, `agents`, `flow`, `bars`, `cluster`, `tree`, `cnn`, `topics` |
+| `cover` | visuel généré : `chat`, `traffic`, `agents`, `flow`, `bars`, `cluster`, `tree`, `cnn`, `topics`, `vision` |
 | `image` | couverture choisie manuellement (facultatif ; si vide, visuel généré via `cover`) |
 | `github` | lien du dépôt → bouton **Code** · `"prive"` → mention « Code confidentiel » · `""` → masqué |
 | `demo` | lien d'une application en ligne → bouton **Démo** (nouvel onglet) |
